@@ -342,6 +342,177 @@
     color: var(--ink-soft);
   }
 
+  /* ── ANALYSIS SECTION ── */
+  .analysis-section {
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 48px 0;
+    margin: 0;
+  }
+  .analysis-section .container { }
+
+  .analysis-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .analysis-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .analysis-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+  .analysis-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .analysis-card.full { grid-column: 1 / -1; }
+  .analysis-card.accent-blue { border-left: 3px solid #185FA5; }
+  .analysis-card.accent-red { border-left: 3px solid #A32D2D; }
+  .analysis-card.accent-green { border-left: 3px solid #3B6D11; }
+  .analysis-card.accent-amber { border-left: 3px solid #854F0B; }
+
+  .acard-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .acard-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .acard-body {
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+  .acard-body strong { color: var(--ink); font-weight: 600; }
+
+  .score-compare {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0 10px;
+  }
+  .score-pill {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    line-height: 1;
+  }
+  .score-pill.before { color: var(--ink-soft); }
+  .score-pill.after { color: var(--ink); }
+  .score-arrow { font-size: 16px; color: var(--ink-soft); }
+  .score-delta-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .finding-list { list-style: none; margin-top: 10px; }
+  .finding-list li {
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+    padding: 7px 0 7px 16px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .finding-list li:last-child { border-bottom: none; }
+  .finding-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--rule);
+  }
+  .finding-list li strong { color: var(--ink); font-weight: 600; }
+  .finding-list li.highlight::before { background: #185FA5; }
+  .finding-list li.warn::before { background: #A32D2D; }
+  .finding-list li.ok::before { background: #3B6D11; }
+
+  .rescue-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 12px;
+    font-size: 12px;
+  }
+  .rescue-col {
+    background: var(--white);
+    padding: 12px 14px;
+  }
+  .rescue-col-head {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .rescue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 6px;
+    line-height: 1.45;
+    color: var(--ink-mid);
+    font-size: 12px;
+  }
+  .rescue-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .pattern-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pattern-row:last-child { border-bottom: none; }
+  .pattern-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--rule);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: right;
+  }
+  .pattern-text { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+  .pattern-text strong { color: var(--ink); font-weight: 600; }
+
   /* ── FOOTER ── */
   footer {
     background: var(--surface);
@@ -393,6 +564,141 @@
     </div>
   </div>
 </div>
+
+<!-- OVERALL ANALYSIS SECTION -->
+<div class="analysis-section">
+  <div class="container">
+
+    <p class="analysis-title">Overall analysis</p>
+    <p class="analysis-subtitle">How scoring, grading, and rescue flagging changed with SML-specific custom instructions</p>
+
+    <!-- ROW 1: Scoring + Grading -->
+    <div class="analysis-grid">
+
+      <!-- SCORING -->
+      <div class="analysis-card accent-blue">
+        <div class="acard-label">Agent Scoring</div>
+        <div class="acard-title">Scores tightened — but more precisely</div>
+        <div class="score-compare">
+          <span class="score-pill before">57%</span>
+          <span class="score-arrow">→</span>
+          <span class="score-pill after">49%</span>
+          <span class="score-delta-pill" style="background:var(--grade-d-bg);color:var(--grade-d-text);">▼ −8 avg</span>
+        </div>
+        <div class="acard-body">
+          The base prompt scored agents against generic intake best practices. SML's instructions layered a second evaluation axis — <strong>did the agent follow SML's specific Section 2 discovery protocol?</strong> Most score drops came not from agents doing more things wrong, but from the bar being calibrated to SML's actual requirements.
+          <br><br>
+          Two scores went <em>up</em> (Jeffrey +3, Stacey +10) because SML rules recognized partial positives the base prompt ignored — the SOL warning Kristian gave Stacey, and the re-engagement attempt on Jeffrey's call.
+        </div>
+      </div>
+
+      <!-- GRADING -->
+      <div class="analysis-card accent-amber">
+        <div class="acard-label">Case Quality Grading</div>
+        <div class="acard-title">Grades mostly held — one major reclassification</div>
+        <div class="acard-body">
+          The Med Mal Quality Matrix (5 dimensions + modifiers) was inherited unchanged from the base ruleset, so grades for clear med mal cases stayed stable. The grading shift happened at the <strong>case type level</strong>, not the matrix level.
+        </div>
+        <ul class="finding-list" style="margin-top:12px;">
+          <li class="ok"><strong>5 of 6</strong> shared calls held their grade — matrix consistent</li>
+          <li class="warn"><strong>Jennifer Kirby:</strong> A → C — reclassified as Workers' Comp, no longer scored under med mal matrix</li>
+          <li class="highlight"><strong>2 new B-grade cases</strong> surfaced that the base prompt didn't evaluate at all (Canda Thomas, Krista Ulrich)</li>
+          <li><strong>Grade floor rule applied:</strong> death and birth injury cases can never fall below B — SML inherited this protection from the base ruleset</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ROW 2: Rescue Logic (full width) -->
+    <div class="analysis-grid">
+      <div class="analysis-card full accent-red">
+        <div class="acard-label">Rescue Flagging — Biggest Structural Change</div>
+        <div class="acard-title">From generic conversion failures to firm-specific protocol violations</div>
+        <div class="acard-body" style="margin-bottom:14px;">
+          The base prompt flags rescues when an agent mishandles a viable call — but it evaluates against a generic PI intake standard. SML's instructions added three new rescue triggers that didn't exist before, and removed one false positive.
+        </div>
+        <div class="rescue-compare">
+          <div class="rescue-col">
+            <div class="rescue-col-head">Base prompt — rescue logic</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#A32D2D;"></div>Generic: "failed to refer" or "declined viable case"</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#A32D2D;"></div>No concept of Auto-Escalate triggers or Red Flag Injuries</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#A32D2D;"></div>No discovery-question-failure as a rescue condition</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#A32D2D;"></div>Jennifer Kirby: flagged as rescue (wrong — callback was acceptable)</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#888;"></div>Craig Santoro: no rescue — post-op sepsis not recognized as escalation trigger</div>
+          </div>
+          <div class="rescue-col" style="background:#FAFAFA;">
+            <div class="rescue-col-head">SML instructions — rescue logic</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#3B6D11;"></div>Specific: "failed to apply SML Section 2 attorney approval escalation"</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#3B6D11;"></div>Auto-Escalate triggers: sepsis, neurologic injury, ICU post-routine care, death</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#3B6D11;"></div>Discovery question skip before declining = rescue condition</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#3B6D11;"></div>Jennifer Kirby: correctly cleared — scheduled callback satisfies Section 4</div>
+            <div class="rescue-item"><div class="rescue-dot" style="background:#A32D2D;"></div>Craig Santoro: now rescued — post-op sepsis is Red Flag Injury, not standard hold</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding:12px 14px;background:var(--surface);border-radius:6px;font-size:12.5px;color:var(--ink-mid);line-height:1.6;">
+          <strong style="color:var(--ink);">Net result:</strong> 6 rescues before → 7 rescues after (including 2 new calls). One false positive removed (Kirby). One missed rescue caught (Santoro). Two new rescue-worthy calls identified that never appeared in the base batch.
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3: Three pattern cards -->
+    <div class="analysis-grid three">
+
+      <div class="analysis-card accent-blue">
+        <div class="acard-label">Scoring pattern</div>
+        <div class="acard-title">Discovery-skip is now a first-class deficiency</div>
+        <div class="acard-body">
+          The base prompt penalized agents for <em>outcomes</em> — wrong referral, no sign, dropped call. SML rules penalize agents for <em>process failures</em> that lead to those outcomes. Skipping the required discovery questions before declining is now a 10–15pt deduction on its own, regardless of whether the case was actually non-viable.
+        </div>
+      </div>
+
+      <div class="analysis-card accent-green">
+        <div class="acard-label">Grading pattern</div>
+        <div class="acard-title">Correct partial positives now get credit</div>
+        <div class="acard-body">
+          The base prompt is binary on many coaching points. SML's no-penalty scenarios introduced nuance: an agent who gives an accurate SOL warning (even if incomplete) gets partial credit. An agent who re-engages a caller mid-call after an initial misstep gets partial credit. Two agents scored <em>higher</em> after re-analysis because of this.
+        </div>
+      </div>
+
+      <div class="analysis-card accent-red">
+        <div class="acard-label">Rescue pattern</div>
+        <div class="acard-title">Escalation failure is now distinct from conversion failure</div>
+        <div class="acard-body">
+          The base prompt conflates "didn't sign" with "rescue-worthy." SML separates them. A case where the agent correctly scheduled a callback is <em>not</em> a rescue under Section 4. A case where the agent missed an Auto-Escalate trigger is <em>always</em> a rescue, even if the agent was otherwise competent. These are now evaluated independently.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROW 4: Coaching quality -->
+    <div class="analysis-grid">
+      <div class="analysis-card full" style="border-top: 3px solid var(--navy);">
+        <div class="acard-label">Coaching quality shift</div>
+        <div class="acard-title">From generic intake advice to firm-specific, actionable instruction</div>
+        <div class="acard-body" style="margin-bottom:16px;">
+          The most significant qualitative change isn't in scores or grades — it's in what agents are actually told to do differently.
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-num">1</div>
+          <div class="pattern-text"><strong>Section references replaced vague guidance.</strong> "Agent should gather more information before declining" became "Agent must apply SML's Section 2 discovery questions — specifically compensable harm, provider identity, and negligence type — before any declination." Agents now know exactly what protocol was violated.</div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-num">2</div>
+          <div class="pattern-text"><strong>Escalation coaching is now trigger-specific.</strong> "Agent should have escalated sooner" became "Post-operative sepsis following elective knee replacement qualifies as an SML Red Flag Injury under Section 2 and requires immediate routing to an attorney or medical reviewer, not a records-first hold." The trigger is named; the required action is named.</div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-num">3</div>
+          <div class="pattern-text"><strong>False negatives are now caught in coaching too.</strong> Kenneth Bucknam's coaching in the base prompt was single-focus (language neutrality). SML rules added a second coaching track: isolate physically verifiable claims from delusional ones using SML's discovery sequence, so the legal team receives a structured triage rather than an undifferentiated narrative.</div>
+        </div>
+        <div class="pattern-row">
+          <div class="pattern-num">4</div>
+          <div class="pattern-text"><strong>Correct behavior is now explicitly credited.</strong> Agents who followed SML protocol correctly (escalation transfers, informed consent declines with no harm) receive affirmative coaching notes — not silence. The base prompt tends to note deficiencies only; SML instructions add a reinforcement layer for correct decisions.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- END OVERALL ANALYSIS -->
 
 <div class="container">
 
